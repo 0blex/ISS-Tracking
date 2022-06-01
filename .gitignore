@@ -3,6 +3,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# run log
+RunLog.txt
+
 # execution files
 .bat
 
