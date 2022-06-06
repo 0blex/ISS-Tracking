@@ -15,5 +15,11 @@ from config.directories import rootDir
 
 df = xls_upload('{}\output\{}'.format(rootDir,input('filename: ')))
 
-fig = px.scatter_geo(df, lat='latitude', lon='longitude')
+fig = px.line_geo(df, lat='latitude', lon='longitude') #try ,line = dict(width = 2, color = 'blue')
+fig.update_geos(
+    #projection_type="orthographic",
+    #visible=False, resolution=110, #scope="asia",
+    showcountries=True, countrycolor="Black",
+    showsubunits=True, subunitcolor="Blue"
+)
 fig.show()

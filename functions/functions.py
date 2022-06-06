@@ -74,5 +74,5 @@ def expand_seconds(seconds):
     sbool = s > 0
     
     print('{}d {}h {}m {}s'.format(d_int, h_int, m_int, s))
-    result = '{} days '.format(d_int)*dbool + '{} hours '.format(h_int)*hbool + '{} minutes '.format(m_int)*mbool + '{} seconds'.format(s)*sbool
+    result = '{} days '.format(d_int)*dbool + '{} hours '.format(h_int)*hbool + '{} minutes '.format(m_int)*mbool + '{} seconds '.format(s)*sbool
     return result

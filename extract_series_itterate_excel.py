@@ -13,11 +13,11 @@ Created on Sat Feb 12 20:36:15 2022
 """
 
 import time
-from openpyxl import Workbook,load_workbook
+from openpyxl import Workbook
 import pandas as pd
 from datetime import datetime
 from threading import Thread, Event
-from functions.functions import log
+from functions.functions import log, expand_seconds
 from config.directories import rootDir
 
 
@@ -25,6 +25,7 @@ intervals = int(input('How frequently should data be collected (in seconds): '))
 length = int(input('How long should data be collected for (in seconds): '))
 datenow = str(datetime.now().strftime("%Y-%m-%d"))
 timenow = str(datetime.now().strftime("%H-%M-%S"))
+duration = expand_seconds(length)
 
 
 log('Program started')
@@ -35,7 +36,7 @@ wb = Workbook()
 wb.active.title = 'results'
 wb.create_sheet('readme')
 
-wb['readme']['B2'] = 'Positional data of the ISS recorded at {} at {} for {} seconds in intervals of {} seconds.'.format(datenow,timenow,length,intervals)
+wb['readme']['B2'] = 'Positional data of the ISS recorded on {} at {} for {}in intervals of {} seconds.'.format(datenow,timenow,duration,intervals)
 wb['results'].append(['timestamp','latitude','longitude'])
 
 sheetname = datenow+" "+str(intervals)+"-"+str(length)
