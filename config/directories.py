@@ -9,6 +9,3 @@ from config.utils import get_project_root
 
 rootDir = os.path.abspath(get_project_root())
 outputDir = rootDir+'\output'
-
-
-
